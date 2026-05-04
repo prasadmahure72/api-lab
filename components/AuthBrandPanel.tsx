@@ -202,16 +202,7 @@ export default function AuthBrandPanel() {
           100% { background-position: 28px 28px; }
         }
 
-        .brand-glow {
-          position: absolute;
-          top: 30%;
-          left: 50%;
-          transform: translate(-50%, -50%);
-          width: 500px;
-          height: 500px;
-          background: radial-gradient(circle, rgba(0,212,146,0.07) 0%, transparent 70%);
-          pointer-events: none;
-        }
+        .brand-glow { display: none; }
 
         .brand-content {
           position: relative;
@@ -251,7 +242,7 @@ export default function AuthBrandPanel() {
           border-radius: 0.75rem;
           overflow: hidden;
           margin-bottom: 1.75rem;
-          box-shadow: 0 20px 40px rgba(0,0,0,0.5), 0 0 0 1px rgba(0,212,146,0.06);
+          box-shadow: 0 20px 40px rgba(0,0,0,0.5);
         }
 
         .terminal-bar {
@@ -362,7 +353,7 @@ export default function AuthBrandPanel() {
           align-items: center;
           gap: 0.375rem;
           padding: 0.375rem 0.75rem;
-          background: rgba(0,212,146,0.06);
+          background: rgba(255,255,255,0.04);
           border: 1px solid #1e2e28;
           border-radius: 9999px;
           font-size: 0.78rem;

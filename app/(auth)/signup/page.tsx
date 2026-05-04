@@ -98,8 +98,8 @@ export default function SignUpPage() {
           style={{
             width: '56px',
             height: '56px',
-            background: 'rgba(0,212,146,0.1)',
-            border: '1px solid rgba(0,212,146,0.25)',
+            background: 'rgba(255,255,255,0.05)',
+            border: '1px solid #1e2e28',
             borderRadius: '50%',
             display: 'flex',
             alignItems: 'center',
@@ -184,7 +184,7 @@ export default function SignUpPage() {
         }}
         onMouseEnter={e => {
           e.currentTarget.style.borderColor = '#00d492'
-          e.currentTarget.style.boxShadow = '0 0 16px rgba(0,212,146,0.12)'
+          e.currentTarget.style.boxShadow = 'none'
         }}
         onMouseLeave={e => {
           e.currentTarget.style.borderColor = '#1e2e28'
@@ -218,7 +218,7 @@ export default function SignUpPage() {
             style={inputBase()}
             onFocus={e => {
               e.target.style.borderColor = '#00d492'
-              e.target.style.boxShadow = '0 0 0 3px rgba(0,212,146,0.08)'
+              e.target.style.boxShadow = 'none'
             }}
             onBlur={e => {
               e.target.style.borderColor = '#1e2e28'
@@ -240,7 +240,7 @@ export default function SignUpPage() {
             onFocus={e => {
               if (!emailError) {
                 e.target.style.borderColor = '#00d492'
-                e.target.style.boxShadow = '0 0 0 3px rgba(0,212,146,0.08)'
+                e.target.style.boxShadow = 'none'
               }
             }}
             onBlur={e => {
@@ -268,7 +268,7 @@ export default function SignUpPage() {
               style={{ ...inputBase(), paddingRight: '2.75rem' }}
               onFocus={e => {
                 e.target.style.borderColor = '#00d492'
-                e.target.style.boxShadow = '0 0 0 3px rgba(0,212,146,0.08)'
+                e.target.style.boxShadow = 'none'
               }}
               onBlur={e => {
                 e.target.style.borderColor = '#1e2e28'
@@ -311,7 +311,7 @@ export default function SignUpPage() {
               onFocus={e => {
                 if (!confirmMismatch) {
                   e.target.style.borderColor = '#00d492'
-                  e.target.style.boxShadow = '0 0 0 3px rgba(0,212,146,0.08)'
+                  e.target.style.boxShadow = 'none'
                 }
               }}
               onBlur={e => {
@@ -370,7 +370,7 @@ export default function SignUpPage() {
           onMouseEnter={e => {
             if (!loading) {
               e.currentTarget.style.filter = 'brightness(1.08)'
-              e.currentTarget.style.boxShadow = '0 0 24px rgba(0,212,146,0.35)'
+              e.currentTarget.style.boxShadow = 'none'
             }
           }}
           onMouseLeave={e => {

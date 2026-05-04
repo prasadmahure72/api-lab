@@ -103,7 +103,7 @@ export default function SignInPage() {
         }}
         onMouseEnter={e => {
           e.currentTarget.style.borderColor = '#00d492'
-          e.currentTarget.style.boxShadow = '0 0 16px rgba(0,212,146,0.12)'
+          e.currentTarget.style.boxShadow = 'none'
         }}
         onMouseLeave={e => {
           e.currentTarget.style.borderColor = '#1e2e28'
@@ -145,7 +145,7 @@ export default function SignInPage() {
             style={inputBase}
             onFocus={e => {
               e.target.style.borderColor = '#00d492'
-              e.target.style.boxShadow = '0 0 0 3px rgba(0,212,146,0.08)'
+              e.target.style.boxShadow = 'none'
             }}
             onBlur={e => {
               e.target.style.borderColor = '#1e2e28'
@@ -168,7 +168,7 @@ export default function SignInPage() {
               style={{ ...inputBase, paddingRight: '2.75rem' }}
               onFocus={e => {
                 e.target.style.borderColor = '#00d492'
-                e.target.style.boxShadow = '0 0 0 3px rgba(0,212,146,0.08)'
+                e.target.style.boxShadow = 'none'
               }}
               onBlur={e => {
                 e.target.style.borderColor = '#1e2e28'
@@ -238,7 +238,7 @@ export default function SignInPage() {
           onMouseEnter={e => {
             if (!loading) {
               e.currentTarget.style.filter = 'brightness(1.08)'
-              e.currentTarget.style.boxShadow = '0 0 24px rgba(0,212,146,0.35)'
+              e.currentTarget.style.boxShadow = 'none'
             }
           }}
           onMouseLeave={e => {

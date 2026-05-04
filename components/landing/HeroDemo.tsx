@@ -166,10 +166,7 @@ export default function HeroDemo() {
           border: 1px solid #1e2e28;
           border-radius: 14px;
           overflow: hidden;
-          box-shadow:
-            0 0 0 1px rgba(0,212,146,0.06),
-            0 32px 64px rgba(0,0,0,0.6),
-            0 0 80px rgba(0,212,146,0.04);
+          box-shadow: 0 32px 64px rgba(0,0,0,0.6);
           width: 100%;
           max-width: 720px;
           margin: 0 auto;

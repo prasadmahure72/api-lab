@@ -1,6 +1,7 @@
+import type { ReactNode } from 'react'
 import AuthBrandPanel from '@/components/AuthBrandPanel'
 
-export default function AuthLayout({ children }: { children: React.ReactNode }) {
+export default function AuthLayout({ children }: { children: ReactNode }) {
   return (
     <div className="auth-root">
       <AuthBrandPanel />

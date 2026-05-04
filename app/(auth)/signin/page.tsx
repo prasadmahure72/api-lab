@@ -1,13 +1,13 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, type CSSProperties, type FormEvent } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { createClient } from '@/lib/supabase/client'
 import { Eye, EyeOff, Loader2 } from 'lucide-react'
 import Logo from '@/components/Logo'
 
-const inputBase: React.CSSProperties = {
+const inputBase: CSSProperties = {
   width: '100%',
   padding: '0.625rem 0.75rem',
   background: '#0c1410',
@@ -42,7 +42,7 @@ export default function SignInPage() {
     setGoogleLoading(false)
   }
 
-  async function handleSignIn(e: React.FormEvent) {
+  async function handleSignIn(e: FormEvent) {
     e.preventDefault()
     setLoading(true)
     setError('')

@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, type CSSProperties, type FormEvent } from 'react'
 import Link from 'next/link'
 import { createClient } from '@/lib/supabase/client'
 import { Eye, EyeOff, Loader2, CheckCircle2 } from 'lucide-react'
@@ -13,7 +13,7 @@ function getPasswordStrength(pw: string): { label: string; color: string } | nul
   return { label: 'Strong', color: '#00d492' }
 }
 
-const inputBase = (invalid?: boolean): React.CSSProperties => ({
+const inputBase = (invalid?: boolean): CSSProperties => ({
   width: '100%',
   padding: '0.625rem 0.75rem',
   background: '#0c1410',
@@ -27,7 +27,7 @@ const inputBase = (invalid?: boolean): React.CSSProperties => ({
   transition: 'border-color 0.15s, box-shadow 0.15s',
 })
 
-const labelStyle: React.CSSProperties = {
+const labelStyle: CSSProperties = {
   display: 'block',
   fontSize: '0.72rem',
   color: '#6b8c7a',
@@ -69,7 +69,7 @@ export default function SignUpPage() {
     setGoogleLoading(false)
   }
 
-  async function handleSignUp(e: React.FormEvent) {
+  async function handleSignUp(e: FormEvent) {
     e.preventDefault()
     if (emailError || confirmMismatch || !strength || strength.color === '#f87171') return
     setLoading(true)

@@ -3,18 +3,31 @@ generator client {
 }
 
 datasource db {
-  provider  = "postgresql"
-  url       = env("DATABASE_URL")
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String    @id
+  email     String    @unique
+  fullName  String?   @map("full_name")
+  createdAt DateTime  @default(now()) @map("created_at")
+  apis      MockAPI[]
+
+  @@map("users")
 }
 
 model MockAPI {
   id        String   @id @default(uuid())
-  userId    String
+  userId    String   @map("user_id")
   name      String
   endpoint  String
   method    String
   response  Json
   status    Int      @default(200)
   delay     Int?     @default(0)
-  createdAt DateTime @default(now())
+  createdAt DateTime @default(now()) @map("created_at")
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("mock_apis")
 }

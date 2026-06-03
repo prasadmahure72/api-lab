@@ -29,7 +29,9 @@ export default function NavbarActions({ user }: { user: User | null }) {
 
   return (
     <div className="flex items-center gap-4">
-      <span className="text-sm text-gray-400 hidden sm:block">{user.email}</span>
+      <span className="text-sm text-gray-400 hidden sm:block">
+        {user.user_metadata?.full_name || user.user_metadata?.name || user.email}
+      </span>
       <button
         onClick={handleSignOut}
         style={{ border: '1px solid #1e2e28' }}

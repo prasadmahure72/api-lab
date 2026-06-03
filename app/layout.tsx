@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Instrument_Sans, DM_Mono } from 'next/font/google'
 import './globals.css'
 import Navbar from '@/components/Navbar'
+import { ToastProvider } from '@/components/Toast'
 
 const instrumentSans = Instrument_Sans({
   variable: '--font-sans',
@@ -31,8 +32,10 @@ export default function RootLayout({
       className={`${instrumentSans.variable} ${dmMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-[#0a0f0d] text-white">
-        <Navbar />
-        <main className="flex-1">{children}</main>
+        <ToastProvider>
+          <Navbar />
+          <main className="flex-1">{children}</main>
+        </ToastProvider>
       </body>
     </html>
   )

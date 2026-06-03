@@ -1,4 +1,6 @@
 import Link from 'next/link'
+import { redirect } from 'next/navigation'
+import { createClient } from '@/lib/supabase/server'
 import HeroDemo from '@/components/landing/HeroDemo'
 
 /* ─── inline icons ───────────────────────────────────────────────── */
@@ -43,13 +45,17 @@ const steps = [
 ]
 
 const testimonials = [
-  { quote: 'APILab cut our frontend sprint time in half. We stop blocking on the backend team completely.', name: 'Sarah K.', role: 'Frontend Lead @ Stripe' },
-  { quote: 'I mock every new feature\'s API on day one. By the time backend ships, the UI is already done.', name: 'James T.', role: 'Senior Engineer @ Vercel' },
-  { quote: 'Our QA team loves the custom status codes. Testing error states has never been easier.', name: 'Priya M.', role: 'QA Engineer @ Linear' },
+  { quote: 'APILab cut our frontend sprint time in half. We stop blocking on the backend team completely.', name: 'Arjun S.', role: 'Frontend Developer' },
+  { quote: 'I mock every new feature\'s API on day one. By the time backend ships, the UI is already done.', name: 'Rohan M.', role: 'Senior Engineer' },
+  { quote: 'Our QA team loves the custom status codes. Testing error states has never been easier.', name: 'Priya K.', role: 'QA Engineer' },
 ]
 
 /* ─── page ───────────────────────────────────────────────────────── */
-export default function LandingPage() {
+export default async function LandingPage() {
+  const supabase = await createClient()
+  const { data: { user } } = await supabase.auth.getUser()
+  if (user) redirect('/dashboard')
+
   return (
     <div style={{ background: '#0a0f0d', color: '#e8f0ec', overflowX: 'hidden' }}>
 
@@ -67,23 +73,21 @@ export default function LandingPage() {
           </div>
 
           <h1 className="lp-h1">
-            Stop waiting for<br />
-            <span className="lp-gradient-text">backend APIs.</span>
+            Mock APIs.<br />
+            <span className="lp-gradient-text">Instantly.</span>
           </h1>
 
           <p className="lp-hero-sub">
-            Define an endpoint. Write a JSON response. Get a live URL instantly.
-            <br className="lp-br" />
-            APILab is the mock API platform that keeps your frontend moving.
+            Define an endpoint. Get a live URL. Ship faster.
           </p>
 
           <div className="lp-cta-row">
             <Link href="/signup" className="lp-btn-primary">
               Get started free <IconArrow />
             </Link>
-            <Link href="/signin" className="lp-btn-ghost">
-              Sign in
-            </Link>
+            <a href="#how-it-works" className="lp-btn-ghost">
+              See How It Works
+            </a>
           </div>
 
           <p className="lp-trust">
@@ -112,7 +116,7 @@ export default function LandingPage() {
       </div>
 
       {/* ══ HOW IT WORKS ════════════════════════════════════════════ */}
-      <section className="lp-section">
+      <section id="how-it-works" className="lp-section">
         <div className="lp-container">
           <div className="lp-section-header">
             <span className="lp-tag">How it works</span>

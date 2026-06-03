@@ -111,7 +111,7 @@ export default function SignInPage() {
         }}
       >
         {googleLoading ? <Loader2 size={16} className="animate-spin" /> : <GoogleIcon />}
-        Continue with Google
+        {googleLoading ? 'Connecting...' : 'Continue with Google'}
       </button>
 
       {/* Divider */}
